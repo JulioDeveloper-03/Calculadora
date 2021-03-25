@@ -57,6 +57,7 @@
        
     </head>
     <body>   
+        
          <div id="calculadora">
             <input type="text" id="numbers" readonly>
             <div id="input-numbers">
@@ -64,39 +65,41 @@
             <button id="botao">Voltar para cima</button>
          </div>
          
-             
-
-
-        <script>
-            
+        <script> 
             const $botao = document.getElementById('botao');
             const $input_numbers = document.getElementById('input-numbers');
             const $numbers = document.getElementById('numbers');
 
-                for(var i = 0; i < 11; i++){
-                    if(i < 10){
-                         $input_numbers.innerHTML += `<div id="number" onclick="conta(`+i+`)"><p>`+ i +`</p></div>`;
-                    }
-                    else{
-                        $input_numbers.innerHTML += `<div id="number" onclick="conta('+')"><p>+</p></div>`;
-                    }
+                for(var i = 0; i < 10; i++){
+                    
+                    $input_numbers.innerHTML += `<div id="number" onclick="conta(`+i+`)"><p>`+ i +`</p></div>`;
+                    
+                
                 }
+                
+                $input_numbers.innerHTML += `<div id="number" onclick="conta('+')"><p>+</p></div>`;
                 $input_numbers.innerHTML += `<div id="number" onclick="calcular()"><p>=</p></div>`;
                 $input_numbers.innerHTML += `<div id="number" onclick="conta('/')"><p>/</p></div>`;
                 $input_numbers.innerHTML += `<div id="number" onclick="conta('-')"><p>-</p></div>`;
                 $input_numbers.innerHTML += `<div id="number" onclick="conta('*')"><p>*</p></div>`;   
                 $input_numbers.innerHTML += `<div id="number" onclick="zerar()"><p>C</p></div>`;
+
+
+                //Função para acrescentar um valor no input.
                 function conta(num){
                     var calc = $numbers.value += num;
                     return calc;
                 }
                 
+                //Função para fazer o calculo.
                 function calcular(){
                     var result = eval($numbers.value);
                     var mostrarresult = $numbers.value = result;
                     return mostrarresult;
                 }
                    
+
+                //Apagar o valor do input.
                 function zerar(){
                      var clear_value;
                      clear_value = $numbers.value = '';
@@ -104,10 +107,10 @@
                    
                 }
 
+                //Voltar para o inicio da página. (USO DO BOM)
                  $botao.addEventListener('click', function(){
                         window.scrollTo(0, 0);
-                   });
-                  
+                   });        
          </script>
     </body>
 </html>
